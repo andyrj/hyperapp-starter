@@ -1,0 +1,3 @@
+test/helpers/browser.js
+../src/**/*.spec.js 
+../src/*.spec.js

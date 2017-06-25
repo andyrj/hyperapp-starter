@@ -1,0 +1,24 @@
+{
+	"presets": [
+		["env", {
+			"modules": false,
+			"targets": {
+				"browsers": ["last 2 versions"]
+			},
+			"exclude":["transform-regenerator"] 
+		}],
+		"stage-1"
+	],
+	"plugins": [
+		[
+			"transform-react-jsx",
+			{
+				"pragma": "h"
+			}
+		],
+		"transform-object-rest-spread",
+    "syntax-jsx",
+    "syntax-flow",
+    "transform-flow-strip-types"
+	]
+}
