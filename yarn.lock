@@ -2541,9 +2541,9 @@ https-proxy-agent@^1.0.0:
     debug "2"
     extend "3"
 
-hyperapp@^0.9.3:
+"hyperapp@https://github.com/andyrj/hyperapp.git":
   version "0.9.3"
-  resolved "https://registry.yarnpkg.com/hyperapp/-/hyperapp-0.9.3.tgz#f2613c7ac0530c14323f2200e9e4be87ff38ffb1"
+  resolved "https://github.com/andyrj/hyperapp.git#958c22cd67eb0cc51caa4c16373fdb691b3cd64d"
 
 iconv-lite@0.4.13:
   version "0.4.13"

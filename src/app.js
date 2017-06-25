@@ -1,12 +1,12 @@
 import { h, app, Router } from 'hyperapp';
 
 export default (state) => {
-	app({
-		state: state,
+	const appInst = app({
+		state,
 		view: (state, actions) => {
 			return (
 				<div>
-					<p>Hot reloaded!</p>
+					<p>Hot reloaded! state saved... kind of hackish</p>
 					<button onclick={actions.increment}>Click</button>
 					<span>{state.count}</span>
 				</div>
@@ -16,4 +16,6 @@ export default (state) => {
 			increment: (state) => Object.assign({}, state, { count: state.count + 1 } )
 		}
 	});
+
+	return appInst;
 };

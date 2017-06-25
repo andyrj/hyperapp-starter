@@ -32,7 +32,7 @@
   "author": "Andy Johnson <andyrjohnson82@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "hyperapp": "^0.9.3",
+    "hyperapp": "https://github.com/andyrj/hyperapp.git",
     "jsdom": "^11.0.0",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",

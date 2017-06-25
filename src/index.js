@@ -5,15 +5,20 @@ import app from './app';
 // hyperapp doesn't hydrate existing dom so it must be regenerated
 // this will cause a flicker when re-rendered client side... meh..
 document.body.innerHTML = '';
-let state = {
+let instance = app({
 	count: 0
-};
-app(state);
+});
+let savedState = instance.getState();
 
 if (module.hot) {
+	setInterval(() => {
+		savedState = instance.getState();
+		console.log(savedState);
+	}, 1000);
 	module.hot.accept('./app', () => {
 		document.body.innerHTML = '';
-		app(state);
+		
+		app(savedState);
 	});
 	module.hot.accept();
 }
