@@ -1,14 +1,19 @@
 import { h, app, Router } from 'hyperapp';
-import Home from './components/Home';
-import Test from './components/Test';
 
-export default () => {
+export default (state) => {
 	app({
-		state: 'Hello World!123',
-		view: [
-			['/', state => <Home />],
-			['/test', state => <Test />]
-		],
-		mixins: [Router]
+		state: state,
+		view: (state, actions) => {
+			return (
+				<div>
+					<p>Hot reloaded!</p>
+					<button onclick={actions.increment}>Click</button>
+					<span>{state.count}</span>
+				</div>
+			);
+		},
+		actions: {
+			increment: (state) => Object.assign({}, state, { count: state.count + 1 } )
+		}
 	});
 };
