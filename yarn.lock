@@ -2713,6 +2713,10 @@ https-proxy-agent@^1.0.0:
     debug "2"
     extend "3"
 
+hyperapp-webpack-hmr@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hyperapp-webpack-hmr/-/hyperapp-webpack-hmr-1.0.1.tgz#32528224a7a374fad7fcda1d36f5bc8f092cd3b6"
+
 hyperapp@^0.9.3:
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/hyperapp/-/hyperapp-0.9.3.tgz#f2613c7ac0530c14323f2200e9e4be87ff38ffb1"
