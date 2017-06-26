@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "hyperapp": "^0.9.3",
-    "hyperapp-redux-devtools": "^1.0.1",
+    "hyperapp-redux-devtools": "^1.0.2",
     "hyperapp-webpack-hmr": "^1.0.1",
     "jsdom": "^11.0.0",
     "koa": "^2.3.0",
