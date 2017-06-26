@@ -1,7 +1,10 @@
 import { h, app, Router } from 'hyperapp';
-import hmr from 'hyperapp-webpack-hmr';
-import devtools from 'hyperapp-redux-devtools';
 import { DEV } from './utils';
+
+let mixins = [];
+if (DEV) {
+	mixins.push(require('hyperapp-webpack-hmr')(), require('hyperapp-redux-devtools')());
+}
 
 export default (state) => {
 	app({
@@ -18,6 +21,6 @@ export default (state) => {
 		actions: {
 			increment: (state) => Object.assign({}, state, { count: state.count + 1 } )
 		},
-		mixins: [hmr(), devtools()]
+		mixins
 	});
 };
