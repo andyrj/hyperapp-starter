@@ -26,6 +26,11 @@ if (DEV) {
 	const compile = webpack(clientConfig);
 	app.use(convert(require('koa-webpack-dev-middleware')(compile, { // eslint-disable-line
 		publicPath: clientConfig.output.publicPath,
+		noInfo: false,
+		overlay: false,
+		reload: true,
+		quiet: false,
+		hot: true,
 		stats: {
 			colors: true
 		}

@@ -1,9 +1,5 @@
 'use strict';
 
-// TODO: switch back to jsdom for hyperapp SSR for the time being...
-//import { renderToString } from 'react-dom/server';
-//import App from '../App';
-//import Stores from '../stores';
 import { JSDOM } from 'jsdom';
 import app from '../app';
 import { DEV } from '../utils';
@@ -13,15 +9,18 @@ const render = async(ctx, next) => {
 	const path = ctx.request.path;
 	const data = {
 		path
-	};
+	};	
 
 	if (ctx.method !== 'GET' ||
 			path.startsWith('/__webpack_hmr') ||
 			/\.js$/.test(path) ||
-			/\.json$/.test(path)
+			/\.json$/.test(path) ||
+			/\.ico$/.test(path)
 	) {
+		console.log(path);
 		await next();
 	} else {
+		console.log(`should only see my pages: ${path}`);
 		const baseDoc = `
 			<!DOCTYPE html>
 			<html lang=en>

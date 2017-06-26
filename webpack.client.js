@@ -5,7 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CompressionPlugin = require('compression-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const Purify = require('purifycss-webpack-plugin');
+//const Purify = require('purifycss-webpack-plugin');
 
 const babelSettings = JSON.parse(readFileSync('.babelrc'));
 const DEV = process.env.NODE_ENV !== 'production';
@@ -18,7 +18,7 @@ const extractSass = new ExtractTextPlugin({
 });
 
 const plugins = [
-	new webpack.optimize.ModuleConcatenationPlugin(),
+	//new webpack.optimize.ModuleConcatenationPlugin(),
 	new webpack.NamedModulesPlugin(),
 	new webpack.optimize.OccurrenceOrderPlugin(),
 	new webpack.NoEmitOnErrorsPlugin(),
@@ -126,13 +126,13 @@ if (DEV) {
       threshold: 10240,
       minRatio: 0
     }),
-		new ExtractTextPlugin('styles.[hash].css'),
+		new ExtractTextPlugin('styles.[hash].css')/*,
 		new Purify({
       basePath: __dirname,
       paths: [
         'dist/main*.js'
       ]
-    })
+    })*/
 	);
 
 	if (MAPS) {
