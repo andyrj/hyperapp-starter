@@ -17,7 +17,8 @@
     "document": true,
     "fetch": true,
     "btoa": true,
-    "atob": true
+    "atob": true,
+		"history": true
   },
   "rules": {
     "import/no-dynamic-require": 0,
