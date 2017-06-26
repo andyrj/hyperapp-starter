@@ -2,7 +2,7 @@ import { h, app, Router } from 'hyperapp';
 import { DEV } from './utils';
 
 export default (state) => {
-	const appInst = app({
+	app({
 		state,
 		view: (state, actions) => {
 			return (
