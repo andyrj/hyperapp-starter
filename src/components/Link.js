@@ -1,12 +1,12 @@
 import { h, app } from 'hyperapp';
 
-const handler = to => event => {
+const doClick = (go, to) => event => {
 	event.preventDefault();
-	history.pushState({}, document.title, to);
+	go(to);
 };
 
-export default ({to}, children) => {
-	const click = handler(to);
+export default ({actions, to}, children) => {
+	const click = doClick(actions.router.go, to);
 	return (
 		<a href={to} onclick={click}>{children}</a>
 	);
