@@ -2717,9 +2717,9 @@ https-proxy-agent@^1.0.0:
     debug "2"
     extend "3"
 
-hyperapp-redux-devtools@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/hyperapp-redux-devtools/-/hyperapp-redux-devtools-1.0.2.tgz#a483f1846d7fbe9b3077e8dabdd33aa085857e82"
+hyperapp-redux-devtools@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/hyperapp-redux-devtools/-/hyperapp-redux-devtools-1.0.3.tgz#20592156bc12d8db167afecbe2cb032e21f3d8fa"
   dependencies:
     redux "^3.7.1"
     redux-devtools-extension "^2.13.2"

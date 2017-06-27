@@ -65,7 +65,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.2",
     "flow-bin": "^0.48.0",
-    "hyperapp-redux-devtools": "^1.0.2",
+    "hyperapp-redux-devtools": "^1.0.3",
     "hyperapp-webpack-hmr": "^1.0.1",
     "koa-webpack-dev-middleware": "^1.4.6",
     "koa-webpack-hot-middleware": "^1.0.3",
