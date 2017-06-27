@@ -8,7 +8,10 @@ export default (state, actions) => {
 		<div>
 			<Header state={state} actions={actions} />
 			<button onclick={actions.counters.add}>Add</button>
-			{state.counters.map(({id, count}) => {
+			{state.counters.map((counter) => {
+				console.log(state);
+				const id = counter.id;
+				const count = counter.count;
 				return (
 					<Counter id={id} 
 						inc={actions.counter.increment({id})} 
