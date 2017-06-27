@@ -1,5 +1,5 @@
 export default {
-	toggle: (state, actions, {id}) => {
+	toggle: (state, actions, id) => {
 		return {
 			...state,
 			todos: state.todos.map((t, id) =>

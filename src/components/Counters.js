@@ -3,7 +3,20 @@ import shortid from 'shortid';
 import Header from './Header';
 import Counter from './Counter';
 
+const getIncrementer = (actions, id) => (event) => {
+	actions.counter.increment(id);
+};
+
+const getDecrementer = (actions, id) => (event) => {
+	actions.counter.decrement(id);
+};
+
+const getRemover = (actions, id) => (event) => {
+	actions.counters.remove(id);
+};
+
 export default (state, actions) => {
+	
 	return (
 		<div>
 			<Header state={state} actions={actions} />
@@ -13,9 +26,9 @@ export default (state, actions) => {
 				const count = counter.count;
 				return (
 					<Counter id={id} 
-						inc={actions.counter.increment({id})} 
-						dec={actions.counter.decrement({id})} 
-						del={actions.counters.remove({id})}
+						inc={getIncrementer(actions, id)} 
+						dec={getDecrementer(actions, id)} 
+						rem={getRemover(actions, id)}
 					>{count}</Counter>
 				);
 			})}

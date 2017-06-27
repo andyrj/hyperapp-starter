@@ -1,9 +1,8 @@
 import shortid from 'shortid';
 
 export default {
-	add: (state, actions, {text}) => {
+	add: (state, actions, text) => {
 		return {
-			...state,
 			todos: state.todos.concat({
 				id: shortid.generate(),
 				text,
@@ -11,22 +10,18 @@ export default {
 			})
 		};
 	},
-	remove: (state, actions, {id}) => {
-		const index = state.todos.map((t, id) => {
-			if (t.id === id) return id;
-		})[0];
+	remove: (state, actions, id) => {
+		const index = state.todos.findIndex(t => t.id === id);
 
 		return {
-			...state,
 			todos: [
-				...state.todos.splice(0, index),
-				...state.todos.splice(index + 1)
+				...state.todos.slice(0, index),
+				...state.todos.slice(index + 1)
 			]
 		};
 	},
-	filter: (state, actions, {filterStr}) => {
+	filter: (state, actions, filterStr) => {
 		return {
-			...state,
 			todoFilter: filterStr
 		};
 	}

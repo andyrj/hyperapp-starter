@@ -1,5 +1,5 @@
 export default {
-	increment: (state, actions, {id}) => {
+	increment: (state, actions, id) => {
 		return {
 			...state,
 			counters: state.counters.map(counter =>
@@ -7,7 +7,7 @@ export default {
 			)
 		};
 	},
-	decrement: (state, actions, {id}) => {
+	decrement: (state, actions, id) => {
 		return {
 			...state,
 			counters: state.counters.map(counter =>
