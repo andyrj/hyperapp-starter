@@ -1,26 +1,23 @@
 import { h, app, Router } from 'hyperapp';
-import { DEV } from './utils';
+import Home from './components/Home';
+import Counters from './components/Counters';
+import Todos from './components/Todos'; 
+import { DEV, SERVER } from './utils';
 
-let mixins = [];
-if (DEV) {
+let mixins = [ Router ];
+if (DEV && !SERVER) {
 	mixins.push(require('hyperapp-webpack-hmr')(), require('hyperapp-redux-devtools')());
 }
 
 export default (state) => {
 	app({
 		state,
-		view: (state, actions) => {
-			return (
-				<div>
-					<p>Hot module reload! no refresh required! woot!</p>
-					<button onclick={actions.increment}>Click</button>
-					<span>{state.count}</span>
-				</div>
-			);
-		},
-		actions: {
-			increment: (state) => Object.assign({}, state, { count: state.count + 1 } )
-		},
+		view: [
+			['/', Home],
+			['/counters', Counters],
+			['/todos', Todos]
+		],
+		actions: {},
 		mixins
 	});
 };

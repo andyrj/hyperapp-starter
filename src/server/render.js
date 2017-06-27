@@ -3,6 +3,7 @@
 import { JSDOM } from 'jsdom';
 import app from '../app';
 import { DEV } from '../utils';
+import state from './clientState';
 import pjson from '../../package.json';
 
 const render = async(ctx, next) => {
@@ -17,10 +18,8 @@ const render = async(ctx, next) => {
 			/\.json$/.test(path) ||
 			/\.ico$/.test(path)
 	) {
-		console.log(path);
 		await next();
 	} else {
-		console.log(`should only see my pages: ${path}`);
 		const baseDoc = `
 			<!DOCTYPE html>
 			<html lang=en>
@@ -31,6 +30,9 @@ const render = async(ctx, next) => {
 					<title>${pjson.name}</title>
 					<script src='/vendor.js' defer></script>
 					<script src='/main.js' defer></script>
+					<script id="state" type="application/json">
+						${JSON.stringify(state)}
+					</script>
 				</head>
 				<body>
 				</body>
@@ -45,8 +47,10 @@ const render = async(ctx, next) => {
 		global.location = {
 			pathname: path
 		}; 
-		
-		app();		
+		// just stubbing out functions not needed for SSR with hyperapp-router
+		global.addEventListener = (str, fn) => {};
+
+		app(state);
 		
 		ctx.body = dom.serialize();
 		ctx.type = 'text/html';
