@@ -7,7 +7,7 @@ import { DEV, SERVER } from './utils';
 
 let mixins = [ Router ];
 if (DEV && !SERVER) {
-	mixins.push(require('hyperapp-webpack-hmr')(), /*require('hyperapp-redux-devtools')()*/);
+	mixins.push(require('hyperapp-webpack-hmr')(), require('hyperapp-redux-devtools')());
 }
 
 export default (state) => {
@@ -19,7 +19,7 @@ export default (state) => {
 			['/todos', Todos]
 		],
 		events: {
-			action: console.log
+			// action: console.log
 		},
 		actions,
 		mixins
