@@ -4,15 +4,15 @@ import Header from './Header';
 import Counter from './Counter';
 
 const getIncrementer = (actions, id) => (event) => {
-	actions.counter.increment(id);
+	actions.counter.increment({id});
 };
 
 const getDecrementer = (actions, id) => (event) => {
-	actions.counter.decrement(id);
+	actions.counter.decrement({id});
 };
 
 const getRemover = (actions, id) => (event) => {
-	actions.counters.remove(id);
+	actions.counters.remove({id});
 };
 
 export default (state, actions) => {
