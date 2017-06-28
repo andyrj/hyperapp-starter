@@ -1,8 +1,6 @@
 import { h } from 'hyperapp';
 import Header from './Header';
 
-
-
 export default (state, actions) => {
 	return (
 		<div>

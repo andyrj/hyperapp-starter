@@ -5,6 +5,6 @@ export default {
 		counters: state.counters.concat({ id: shortid.generate(), count: 0 })
 	}),
 	remove: (state, actions, {id}) => ({
-		counters: state.counters.filter(c => c.id === id)
+		counters: state.counters.filter(c => c.id !== id)
 	})
 };

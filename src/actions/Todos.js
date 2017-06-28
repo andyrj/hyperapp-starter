@@ -9,7 +9,7 @@ export default {
 		})
 	}),
 	remove: (state, actions, id) => ({
-		todos: state.todos.filter(t => t.id === id)
+		todos: state.todos.filter(t => t.id !== id)
 	}),
 	filter: (state, actions, filterStr) => ({
 		todoFilter: filterStr
