@@ -17,9 +17,6 @@ k.use(async (ctx, next) => {
 
 k.use(async(ctx, next) => {
 	const path = ctx.request.path;
-	const data = {
-		path
-	};
 
 	if (path === '/js/vendor.js' || path === '/js/app.js')
 	{
