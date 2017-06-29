@@ -21,6 +21,7 @@
     "build:client-prod": "NODE_ENV=production webpack -p --config webpack.client.js",
     "build:server-prod": "NODE_ENV=production webpack --config webpack.server.js",
     "build:prod": "npm run clean && npm run build:server-prod && npm run build:client-prod",
+    "format": "prettier --write \"./src/**/*.js\"",
     "analyze": "npm run clean && npm run build:server-prod && NODE_ENV=production ANALYZE=1 webpack -p --config webpack.client.js",
     "dev": "npm run clean && webpack --config webpack.server.js --watch --hot --verbose",
     "start": "NODE_ENV=production node .build/server.js",
@@ -38,6 +39,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-convert": "^1.2.0",
     "koa-helmet": "^3.2.0",
+    "prettier": "^1.5.2",
     "shortid": "^2.2.8"
   },
   "devDependencies": {

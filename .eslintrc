@@ -63,8 +63,6 @@
     "react/jsx-space-before-closing": 0,
     "react/jsx-first-prop-new-line": 0,
     "react/no-unknown-property": 0,
-    "react/sort-comp": 0,
-		"react/jsx-indent": [2, "tab"],
-		"react/jsx-indent-props": [2, "tab"]
+    "react/sort-comp": 0
   }
 }

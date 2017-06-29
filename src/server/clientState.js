@@ -1,8 +1,8 @@
-import shortid from 'shortid';
+import shortid from "shortid";
 
 export default {
-	counters: [],
-	todoInput: '',
-	todos: [],
-	todoFilter: ''
+  counters: [],
+  todoInput: "",
+  todos: [],
+  todoFilter: ""
 };
