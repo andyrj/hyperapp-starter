@@ -28,13 +28,9 @@
   "license": "MIT",
   "dependencies": {
     "hyperapp": "^0.9.3",
-    "jsdom": "^11.0.0",
     "koa": "^2.3.0",
-    "koa-bodyparser": "^4.2.0",
-    "koa-convert": "^1.2.0",
-    "koa-helmet": "^3.2.0",
     "koa-static-server": "^1.2.1",
-    "shortid": "^2.2.8"
+    "simple-dom": "^0.3.2"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
