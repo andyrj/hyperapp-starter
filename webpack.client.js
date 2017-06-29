@@ -79,13 +79,8 @@ const entry = {
 let DEVTOOL = false;
 if (DEV) {
 	DEVTOOL = 'inline-source-map';
-
-	entry.main.push(
-		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'
-	);
-
+	
 	plugins.push(
-		new webpack.HotModuleReplacementPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
 				BUILD_TARGET: JSON.stringify('client'),

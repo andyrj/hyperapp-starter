@@ -18,12 +18,7 @@
     "build:client": "webpack --config webpack.client.js",
     "build:server": "webpack --config webpack.server.js",
     "build": "npm run clean && npm run build:server && npm run build:client",
-    "build:client-prod": "NODE_ENV=production webpack -p --config webpack.client.js",
-    "build:server-prod": "NODE_ENV=production webpack --config webpack.server.js",
-    "build:prod": "npm run clean && npm run build:server-prod && npm run build:client-prod",
-    "analyze": "npm run clean && npm run build:server-prod && NODE_ENV=production ANALYZE=1 webpack -p --config webpack.client.js",
-    "dev": "npm run clean && webpack --config webpack.server.js --watch --hot --verbose",
-    "start": "NODE_ENV=production node .build/server.js",
+    "start": "npm run build && node .build/server.js",
     "test": "mocha",
     "lint": "eslint --ext .js,.html src/",
     "lint:fix": "eslint --fix --ext .js,.html src/"
@@ -38,6 +33,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-convert": "^1.2.0",
     "koa-helmet": "^3.2.0",
+    "koa-static-server": "^1.2.1",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
