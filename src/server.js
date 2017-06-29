@@ -3,8 +3,30 @@
 import Koa from 'koa';
 import serve from 'koa-static-server';
 import http from 'http';
-import { JSDOM } from 'jsdom';
 import app from './app';
+
+require('undom/register');
+
+// undom doesn't have a built-in serialize but they give this example 
+function serialize(el) {
+	if (el.nodeType===3) return el.textContent;
+	var name = String(el.nodeName).toLowerCase(),
+		str = '<'+name,
+		c, i;
+	for (i=0; i<el.attributes.length; i++) {
+		str += ' '+el.attributes[i].name+'="'+el.attributes[i].value+'"';
+	}
+	str += '>';
+	for (i=0; i<el.childNodes.length; i++) {
+		c = serialize(el.childNodes[i]);
+		if (c) str += '\n\t'+c.replace(/\n/g,'\n\t');
+	}
+	return str + (c?'\n':'') + '</'+name+'>';
+}
+
+function enc(s) {
+	return s.replace(/[&'"<>]/g, function(a){ return `&#${a};` });
+}
 
 const k = new Koa();
 
@@ -40,21 +62,17 @@ k.use(async(ctx, next) => {
 				</body>
 			</html>
 		`;
-			
-		const dom = new JSDOM(baseDoc);
-		const window = dom.window;
-		const document = window.document;
-		global.window = window;
-		global.document = document;
+
+    /* may still need these for router mixin	
 		global.location = {
 			pathname: path
 		}; 
 		// just stubbing out functions not needed for SSR with hyperapp-router
 		global.addEventListener = (str, fn) => {};
-
+    */
 		app({ count: 0 });
 		
-		ctx.body = dom.serialize();
+		ctx.body = serialize(document.body);
 		ctx.type = 'text/html';
 	}
 });

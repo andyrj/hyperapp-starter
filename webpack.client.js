@@ -71,8 +71,7 @@ const entry = {
 		'./src/index.js'
 	],
 	vendor: [
-		'hyperapp',
-		'shortid'
+		'hyperapp'
 	]
 };
 
