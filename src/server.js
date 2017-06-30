@@ -7,27 +7,6 @@ import app from './app';
 
 require('undom/register');
 
-// undom doesn't have a built-in serialize but they give this example 
-function serialize(el) {
-	if (el.nodeType===3) return el.textContent;
-	var name = String(el.nodeName).toLowerCase(),
-		str = '<'+name,
-		c, i;
-	for (i=0; i<el.attributes.length; i++) {
-		str += ' '+el.attributes[i].name+'="'+el.attributes[i].value+'"';
-	}
-	str += '>';
-	for (i=0; i<el.childNodes.length; i++) {
-		c = serialize(el.childNodes[i]);
-		if (c) str += '\n\t'+c.replace(/\n/g,'\n\t');
-	}
-	return str + (c?'\n':'') + '</'+name+'>';
-}
-
-function enc(s) {
-	return s.replace(/[&'"<>]/g, function(a){ return `&#${a};` });
-}
-
 const k = new Koa();
 
 k.use(serve({rootDir: '.build/', rootPath: '/js'}));
@@ -45,7 +24,20 @@ k.use(async(ctx, next) => {
 		await next();
 	} else {
     const state = { count: 0 };
-		const baseDoc = `
+
+    //console.log(document.readyState);
+
+    /* may still need these for router mixin	
+		global.location = {
+			pathname: path
+		}; 
+    */
+		// just stubbing out functions not needed for SSR with hyperapp-router
+		global.addEventListener = (str, fn) => {};
+    
+		app(state);
+		
+    const html = `
 			<!DOCTYPE html>
 			<html lang=en>
 				<head>
@@ -60,22 +52,12 @@ k.use(async(ctx, next) => {
 					</script>
 				</head>
 				<body>
+          ${document.body.innerHTML}
 				</body>
 			</html>
 		`;
 
-    console.log(document.readyState);
-
-    /* may still need these for router mixin	
-		global.location = {
-			pathname: path
-		}; 
-		// just stubbing out functions not needed for SSR with hyperapp-router
-		global.addEventListener = (str, fn) => {};
-    */
-		app(state);
-		
-		ctx.body = serialize(document.body);
+		ctx.body = html;
 		ctx.type = 'text/html';
 	}
 });
