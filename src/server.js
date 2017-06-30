@@ -7,6 +7,26 @@ import app from './app';
 
 require('undom/register');
 
+function serialize(el) {
+	if (el.nodeType===3) return el.textContent;
+	var name = String(el.nodeName).toLowerCase(),
+		str = '<'+name,
+		c, i;
+	for (i=0; i<el.attributes.length; i++) {
+		str += ' '+el.attributes[i].name+'="'+el.attributes[i].value+'"';
+	}
+	str += '>';
+	for (i=0; i<el.childNodes.length; i++) {
+		c = serialize(el.childNodes[i]);
+		if (c) str += '\n\t'+c.replace(/\n/g,'\n\t');
+	}
+	return str + (c?'\n':'') + '</'+name+'>';
+}
+
+function enc(s) {
+	return s.replace(/[&'"<>]/g, function(a){ return `&#${a};` });
+}
+
 const k = new Koa();
 
 k.use(serve({rootDir: '.build/', rootPath: '/js'}));
@@ -34,7 +54,7 @@ k.use(async(ctx, next) => {
     */
 		// just stubbing out functions not needed for SSR with hyperapp-router
 		global.addEventListener = (str, fn) => {};
-    
+    document.readyState = ["1"];
 		app(state);
 		
     const html = `
@@ -52,7 +72,7 @@ k.use(async(ctx, next) => {
 					</script>
 				</head>
 				<body>
-          ${document.body.innerHTML}
+          ${serialize(document.body.children[0])}
 				</body>
 			</html>
 		`;
