@@ -9,8 +9,8 @@ document.body.innerHTML = '';
 app(state);
 
 if (module.hot) {
-	module.hot.accept('./app', () => {
-		document.body.innerHTML = '';
-		app(window.state);
-	});
+  module.hot.accept('./app', () => {
+    document.body.innerHTML = '';
+    app(window.state);
+  });
 }
