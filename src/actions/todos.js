@@ -1,6 +1,7 @@
 import shortid from "shortid";
+import { update, $apply, $each } from 'qim';
 
-export default {
+export const todos = {
   changeInput: (state, actions, { e }) => ({}),
   changeFilter: (state, actions, { e }) => ({}),
   add: (state, actions, { text }) => ({
@@ -15,5 +16,13 @@ export default {
   }),
   filter: (state, actions, { filterStr }) => ({
     todoFilter: filterStr
+  }),
+  changeTodo: (state, actions, { id, text }) => ({
+    todos: state.todos.map((t, id) => (t.id === id ? { ...t, text } : t))
+  }),
+  toggle: (state, actions, { id }) => ({
+    todos: state.todos.map(
+      (t, id) => (t.id === id ? { ...t, completed: !t.completed } : t)
+    )
   })
 };

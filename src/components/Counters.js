@@ -4,11 +4,11 @@ import Header from "./Header";
 import Counter from "./Counter";
 
 const getIncrementer = (actions, id) => event => {
-  actions.counter.increment({ id });
+  actions.counters.increment({ id });
 };
 
 const getDecrementer = (actions, id) => event => {
-  actions.counter.decrement({ id });
+  actions.counters.decrement({ id });
 };
 
 const getRemover = (actions, id) => event => {

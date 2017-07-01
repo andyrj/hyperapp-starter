@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@hyperapp/router@hyperapp/router":
+"@hyperapp/router@^0.0.2":
   version "0.0.2"
-  resolved "https://codeload.github.com/hyperapp/router/tar.gz/fd4b372dd3a17714a64160b948fbef3c85698654"
+  resolved "https://registry.yarnpkg.com/@hyperapp/router/-/router-0.0.2.tgz#d6859621a0683ffb41d1ffa4a8573f63b96bd7f5"
 
 "@types/node@^6.0.46":
   version "6.0.79"

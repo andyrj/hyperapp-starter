@@ -3,7 +3,7 @@ import { Router } from '@hyperapp/router';
 import Home from "./components/Home";
 import Counters from "./components/Counters";
 import Todos from "./components/Todos";
-import actions from "./actions";
+import * as actions from "./actions";
 import { DEV, SERVER } from "./utils";
 
 let mixins = [Router];

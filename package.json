@@ -33,7 +33,7 @@
   "author": "Andy Johnson <andyrjohnson82@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hyperapp/router": "hyperapp/router",
+    "@hyperapp/router": "^0.0.2",
     "hyperapp": "^0.9.3",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
