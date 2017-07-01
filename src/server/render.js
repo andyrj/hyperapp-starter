@@ -3,7 +3,7 @@
 import { JSDOM } from "jsdom";
 import app from "../app";
 import { DEV } from "../utils";
-import state from "./clientState";
+import state from "../state";
 import pjson from "../../package.json";
 
 const render = async (ctx, next) => {

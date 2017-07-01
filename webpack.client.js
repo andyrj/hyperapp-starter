@@ -72,7 +72,9 @@ const entry = {
 	],
 	vendor: [
 		'hyperapp',
-		'shortid'
+    '@hyperapp/router',
+		'shortid',
+    'qim'
 	]
 };
 

@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@hyperapp/router@hyperapp/router":
+  version "0.0.2"
+  resolved "https://codeload.github.com/hyperapp/router/tar.gz/fd4b372dd3a17714a64160b948fbef3c85698654"
+
 "@types/node@^6.0.46":
   version "6.0.79"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.79.tgz#5efe7d4a6d8c453c7e9eaf55d931f4a22fac5169"
@@ -1777,8 +1781,8 @@ enhance-visitors@^1.0.0:
     lodash "^4.13.1"
 
 enhanced-resolve@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-3.1.0.tgz#9f4b626f577245edcf4b2ad83d86e17f4f421dec"
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-3.3.0.tgz#950964ecc7f0332a42321b673b38dc8ff15535b3"
   dependencies:
     graceful-fs "^4.1.2"
     memory-fs "^0.4.0"
@@ -2561,8 +2565,8 @@ hash-base@^2.0.0:
     inherits "^2.0.1"
 
 hash.js@^1.0.0, hash.js@^1.0.3:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/hash.js/-/hash.js-1.1.2.tgz#bf5c887825cfe40b9efde7bf11bd2db26e6bf01b"
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/hash.js/-/hash.js-1.1.3.tgz#340dedbe6290187151c1ea1d777a3448935df846"
   dependencies:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.0"
@@ -4250,9 +4254,19 @@ purifycss-webpack-plugin@^2.0.3:
     purify-css "^1.1.1"
     webpack-sources "^0.1.0"
 
-qs@6.4.0, qs@^6.4.0, qs@~6.4.0:
+qim@^0.0.49:
+  version "0.0.49"
+  resolved "https://registry.yarnpkg.com/qim/-/qim-0.0.49.tgz#96718419df088b564014f426b969b9228114efee"
+  dependencies:
+    object-assign "^4.1.0"
+
+qs@6.4.0, qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+
+qs@^6.4.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.0.tgz#8d04954d364def3efc55b5a0793e1e2c8b1e6e49"
 
 querystring-es3@^0.2.0:
   version "0.2.1"
@@ -5173,8 +5187,8 @@ uglify-js@^2.6, uglify-js@^2.8.27:
     uglify-to-browserify "~1.0.0"
 
 uglify-js@^3.0.6:
-  version "3.0.21"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.21.tgz#db66690c7a129a2dbb2417f820ca15c119215a05"
+  version "3.0.22"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.22.tgz#0a4d957cf381b38c3f40e9295c442043f04f5805"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
