@@ -1,10 +1,50 @@
 "use strict";
 
-import { JSDOM } from "jsdom";
 import app from "../app";
 import { DEV } from "../utils";
 import state from "../state";
 import pjson from "../../package.json";
+
+require('undom/register');
+
+function serialize(el) { // eslint-disable-line complexity
+  if (el.nodeType===3) return el.textContent;
+  var name = String(el.nodeName).toLowerCase(),
+    str = '<'+name,
+    c, i;
+  for (i=0; i<el.attributes.length; i++) {
+    str += ' '+el.attributes[i].name+'="'+el.attributes[i].value+'"';
+  }
+  switch (name) { // eslint-disable-line smells/no-switch
+    case "area":
+    case "base":
+    case "br":
+    case "col":
+    case "command":
+    case "hr":
+    case "img":
+    case "keygen":
+    case "link":
+    case "meta":
+    case "param":
+    case "source":
+    case "track":
+    case "wbr":
+      return str + " />";
+    default:
+      str += ">";
+      break;
+  }
+  for (i=0; i<el.childNodes.length; i++) {
+    c = serialize(el.childNodes[i]);
+    if (c) str += '\n\t'+c.replace(/\n/g,'\n\t');
+  }
+  return str + (c?'\n':'') + '</'+name+'>';
+}
+
+function enc(s) {
+  return s.replace(/[&'"<>]/g, function(a){ return `&#${a};`; });
+}
 
 const render = async (ctx, next) => {
   const path = ctx.request.path;
@@ -20,8 +60,18 @@ const render = async (ctx, next) => {
     /\.ico$/.test(path)
   ) {
     await next();
-  } else {
-    const baseDoc = `
+  } else {    
+    global.location = {
+      pathname: path
+    };
+    // just stubbing out functions not needed for SSR with hyperapp-router
+    global.addEventListener = (str, fn) => {};
+    document.isServer = true;
+    document.readyState = ["1"];
+
+    app(state);
+
+    const html = `
 			<!DOCTYPE html>
 			<html lang=en>
 				<head>
@@ -36,24 +86,12 @@ const render = async (ctx, next) => {
 					</script>
 				</head>
 				<body>
+        ${serialize(document.body.children[0])}
 				</body>
 			</html>
 		`;
 
-    const dom = new JSDOM(baseDoc);
-    const window = dom.window;
-    const document = window.document;
-    global.window = window;
-    global.document = document;
-    global.location = {
-      pathname: path
-    };
-    // just stubbing out functions not needed for SSR with hyperapp-router
-    global.addEventListener = (str, fn) => {};
-
-    app(state);
-
-    ctx.body = dom.serialize();
+    ctx.body = html;
     ctx.type = "text/html";
   }
 };
