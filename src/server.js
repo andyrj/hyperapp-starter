@@ -37,13 +37,32 @@ function serialize(el) { // eslint-disable-line complexity
   }
   for (i=0; i<el.childNodes.length; i++) {
     c = serialize(el.childNodes[i]);
-    if (c) str += '\n\t'+c.replace(/\n/g,'\n\t');
+    if (c) str += c;
   }
-  return str + (c?'\n':'') + '</'+name+'>';
+  return str + '</'+name+'>';
 }
 
 function enc(s) {
   return s.replace(/[&'"<>]/g, function(a){ return `&#${a};` });
+}
+
+function getHTML(state, body) {
+  return `<!DOCTYPE html>
+    <html lang=en>
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ssr</title>
+        <script src='/js/vendor.js' defer></script>
+        <script src='/js/main.js' defer></script>
+        <script id="state" type="application/json">
+          ${JSON.stringify(state)}
+        </script>
+      </head>
+      <body>${body}</body>
+    </html>
+  `;
 }
 
 const k = new Koa();
@@ -66,37 +85,18 @@ k.use(async(ctx, next) => {
 
     //console.log(document.readyState);
 
-    /* may still need these for router mixin	
+    // may still need these for router mixin	
     global.location = {
       pathname: path
     }; 
-    */
     // just stubbing out functions not needed for SSR with hyperapp-router
     global.addEventListener = (str, fn) => {};
     document.readyState = ["1"];
     app(state);
     
-    const html = `
-      <!DOCTYPE html>
-      <html lang=en>
-        <head>
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>ssr</title>
-          <script src='/js/vendor.js' defer></script>
-          <script src='/js/main.js' defer></script>
-          <script id="state" type="application/json">
-            ${JSON.stringify(state)}
-          </script>
-        </head>
-        <body>
-          ${serialize(document.body.children[0])}
-        </body>
-      </html>
-    `;
-
-    ctx.body = html;
+    const body = serialize(document.body.children[0]);
+    console.log(body);
+    ctx.body = getHTML(state, body);
     ctx.type = 'text/html';
   }
 });

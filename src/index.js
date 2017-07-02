@@ -6,7 +6,11 @@ const state = JSON.parse(document.getElementById('state').innerHTML);
 // hyperapp doesn't hydrate existing dom so it must be regenerated
 // this will cause a flicker when re-rendered client side... meh..
 //document.body.innerHTML = '';
-app(state);
+// simulating log render time...
+//document.body.innerHTML = '';
+//setInterval(() => app(state), 5000);
+//app(state);
+window.doRender = () => app(state);
 
 if (module.hot) {
   module.hot.accept('./app', () => {
