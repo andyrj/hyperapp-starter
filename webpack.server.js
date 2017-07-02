@@ -9,29 +9,21 @@ const DEV = process.env.NODE_ENV !== 'production';
 const plugins = [
 	new webpack.NamedModulesPlugin(),
 	new webpack.optimize.OccurrenceOrderPlugin(),
-	new webpack.NoEmitOnErrorsPlugin()
+	new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.DefinePlugin({
+    'process.env': {
+      BUILD_TARGET: JSON.stringify('server'),
+      NODE_ENV: DEV ? JSON.stringify('development') : JSON.stringify('production')
+    },
+  })
 ];
 
 if (DEV) {
 	plugins.push(
-		new webpack.DefinePlugin({
-			'process.env': {
-				BUILD_TARGET: JSON.stringify('server'),
-				NODE_ENV: JSON.stringify('development')
-			},
-		}),
 		new StartServerPlugin({
-      name: 'server.js'
+      name: 'server.js',
+      nodeArgs: ['--inspect']
     })
-	);
-} else {
-	plugins.push(
-		new webpack.DefinePlugin({
-			'process.env': {
-				BUILD_TARGET: JSON.stringify('server'),
-				NODE_ENV: JSON.stringify('production')
-			},
-		})
 	);
 }
 

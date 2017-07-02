@@ -35,7 +35,13 @@ const plugins = [
 	{
 		path: '.build/',
 		filename: 'assets.json'
-	})
+	}),
+  new webpack.DefinePlugin({
+    'process.env': {
+      BUILD_TARGET: JSON.stringify('client'),
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+    }
+  })
 ];
 
 const rules = [
@@ -87,22 +93,10 @@ if (DEV) {
 	);
 
 	plugins.push(
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.DefinePlugin({
-			'process.env': {
-				BUILD_TARGET: JSON.stringify('client'),
-				NODE_ENV: JSON.stringify('development')
-			}
-		})
+		new webpack.HotModuleReplacementPlugin()
 	);
 } else {
 	plugins.push(
-		new webpack.DefinePlugin({
-			'process.env': {
-				BUILD_TARGET: JSON.stringify('client'),
-				NODE_ENV: JSON.stringify('production')
-			}
-		}),
     new webpack.NoEmitOnErrorsPlugin(),
     new CompressionPlugin({
       asset: '[path].gz[query]',
