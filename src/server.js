@@ -7,7 +7,7 @@ import app from './app';
 
 require('undom/register');
 
-function serialize(el) {
+function serialize(el) { // eslint-disable-line complexity
   if (el.nodeType===3) return el.textContent;
   var name = String(el.nodeName).toLowerCase(),
     str = '<'+name,
@@ -15,7 +15,26 @@ function serialize(el) {
   for (i=0; i<el.attributes.length; i++) {
     str += ' '+el.attributes[i].name+'="'+el.attributes[i].value+'"';
   }
-  str += '>';
+  switch (name) { // eslint-disable-line smells/no-switch
+    case "area":
+    case "base":
+    case "br":
+    case "col":
+    case "command":
+    case "hr":
+    case "img":
+    case "keygen":
+    case "link":
+    case "meta":
+    case "param":
+    case "source":
+    case "track":
+    case "wbr":
+      return str + " />";
+    default:
+      str += ">";
+      break;
+  }
   for (i=0; i<el.childNodes.length; i++) {
     c = serialize(el.childNodes[i]);
     if (c) str += '\n\t'+c.replace(/\n/g,'\n\t');
