@@ -1,9 +1,9 @@
-import shortid from "shortid";
-import { update, $apply, $each, $begin, $set } from 'qim';
+import randomString from '../utils';
+import { update, $apply, $each } from 'qim';
 
 export const counters = {
   add: (state, actions) => ({
-    counters: state.counters.concat({ id: shortid.generate(), count: 0 })
+    counters: state.counters.concat({ id: randomString(8), count: 0 })
   }),
   remove: (state, actions, { id }) => ({
     counters: state.counters.filter(c => c.id !== id)

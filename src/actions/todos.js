@@ -1,4 +1,4 @@
-import shortid from "shortid";
+import { randomString } from '../utils';
 import { update, $apply, $each } from 'qim';
 
 export const todos = {
