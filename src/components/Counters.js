@@ -1,5 +1,4 @@
 import { h } from "hyperapp";
-import shortid from "shortid";
 import Header from "./Header";
 import Counter from "./Counter";
 

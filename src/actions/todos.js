@@ -1,12 +1,11 @@
-import { randomString } from '../utils';
-import { update, $apply, $each } from 'qim';
+import { randomString } from "../utils";
 
 export const todos = {
   changeInput: (state, actions, { e }) => ({}),
   changeFilter: (state, actions, { e }) => ({}),
   add: (state, actions, { text }) => ({
     todos: state.todos.concat({
-      id: shortid.generate(),
+      id: randomString(8),
       text,
       completed: false
     })

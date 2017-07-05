@@ -2,7 +2,6 @@
 
 import Koa from "koa";
 import bodyParser from "koa-bodyparser";
-import helmet from "koa-helmet";
 import webpack from "webpack";
 import http from "http";
 import convert from "koa-convert";
@@ -14,9 +13,6 @@ import clientConfig from "../../webpack.client";
 
 const app = new Koa();
 
-if (!DEV) { // working around mime/type not being set for dev env...
-  app.use(helmet());
-}
 app.use(bodyParser());
 
 app.use(async (ctx, next) => {

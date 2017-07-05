@@ -1,5 +1,5 @@
 import { h, app } from "hyperapp";
-import { Router } from '@hyperapp/router';
+import { Router } from "@hyperapp/router";
 import Home from "./components/Home";
 import Counters from "./components/Counters";
 import Todos from "./components/Todos";

@@ -6,12 +6,13 @@ import state from "../state";
 import pjson from "../../package.json";
 
 function serialize(el) { // eslint-disable-line complexity
-  if (el.nodeType===3) return el.textContent;
+  if (el.nodeType === 3) return el.textContent;
   var name = String(el.nodeName).toLowerCase(),
-    str = '<'+name,
-    c, i;
-  for (i=0; i<el.attributes.length; i++) {
-    str += ' '+el.attributes[i].name+'="'+el.attributes[i].value+'"';
+    str = "<" + name,
+    c,
+    i;
+  for (i = 0; i < el.attributes.length; i++) {
+    str += " " + el.attributes[i].name + '="' + el.attributes[i].value + '"';
   }
   switch (name) { // eslint-disable-line smells/no-switch
     case "area":
@@ -33,15 +34,17 @@ function serialize(el) { // eslint-disable-line complexity
       str += ">";
       break;
   }
-  for (i=0; i<el.childNodes.length; i++) {
+  for (i = 0; i < el.childNodes.length; i++) {
     c = serialize(el.childNodes[i]);
-    if (c) str += '\n\t'+c.replace(/\n/g,'\n\t');
+    if (c) str += "\n\t" + c.replace(/\n/g, "\n\t");
   }
-  return str + (c?'\n':'') + '</'+name+'>';
+  return str + (c ? "\n" : "") + "</" + name + ">";
 }
 
 function enc(s) {
-  return s.replace(/[&'"<>]/g, function(a){ return `&#${a};`; });
+  return s.replace(/[&'"<>]/g, function(a) {
+    return `&#${a};`;
+  });
 }
 
 const render = async (ctx, next) => {
@@ -59,7 +62,7 @@ const render = async (ctx, next) => {
   ) {
     await next();
   } else {
-    require('undom/register');
+    require("undom/register");
     global.location = {
       pathname: path
     };

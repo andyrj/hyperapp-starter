@@ -1,5 +1,4 @@
-import randomString from '../utils';
-import { update, $apply, $each } from 'qim';
+import { randomString } from "../utils";
 
 export const counters = {
   add: (state, actions) => ({
@@ -8,13 +7,16 @@ export const counters = {
   remove: (state, actions, { id }) => ({
     counters: state.counters.filter(c => c.id !== id)
   }),
-  increment: (state, actions, { id }) => update(
-    ['counters', $each ,counter => counter.id === id, 'count', $apply(count => count + 1)],
-    state
-  ),
-  decrement: (state, actions, { id }) => update(
-    ['counters', $each, counter => counter.id === id, 'count', $apply(count => count - 1)], 
-    state
-  )
-
+  increment: (state, actions, { id }) => ({
+    counters: state.counters.map(
+      counter =>
+        counter.id === id ? { ...counter, count: counter.count + 1 } : counter
+    )
+  }),
+  decrement: (state, actions, { id }) => ({
+    counters: state.counters.map(
+      counter =>
+        counter.id === id ? { ...counter, count: counter.count - 1 } : counter
+    )
+  })
 };
