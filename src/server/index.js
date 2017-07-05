@@ -14,7 +14,9 @@ import clientConfig from "../../webpack.client";
 
 const app = new Koa();
 
-app.use(helmet());
+if (!DEV) { // working around mime/type not being set for dev env...
+  app.use(helmet());
+}
 app.use(bodyParser());
 
 app.use(async (ctx, next) => {
