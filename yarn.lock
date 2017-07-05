@@ -152,9 +152,9 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
-aria-query@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-0.5.0.tgz#85e3152cd8cc5bab18dbed61cd9c4fce54fa79c3"
+aria-query@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-0.7.0.tgz#4af10a1e61573ddea0cf3b99b51c52c05b424d24"
   dependencies:
     ast-types-flow "0.0.7"
 
@@ -832,8 +832,8 @@ babel-polyfill@^6.23.0:
     regenerator-runtime "^0.10.0"
 
 babel-preset-env@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.5.2.tgz#cd4ae90a6e94b709f97374b33e5f8b983556adef"
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.0.tgz#2de1c782a780a0a5d605d199c957596da43c44e4"
   dependencies:
     babel-plugin-check-es2015-constants "^6.22.0"
     babel-plugin-syntax-trailing-function-commas "^6.22.0"
@@ -1294,10 +1294,8 @@ commander@2.9.0, commander@~2.9.0:
     graceful-readlink ">= 1.0.0"
 
 commander@^2.8.1, commander@^2.9.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.10.0.tgz#e1f5d3245de246d1a5ca04702fa1ad1bd7e405fe"
-  dependencies:
-    graceful-readlink ">= 1.0.0"
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -1763,8 +1761,8 @@ elliptic@^6.0.0:
     minimalistic-crypto-utils "^1.0.0"
 
 emoji-regex@^6.1.0:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.4.2.tgz#a30b6fee353d406d96cfb9fa765bdc82897eff6e"
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.4.3.tgz#6ac2ac58d4b78def5e39b33fcbf395688af3076c"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -1913,8 +1911,8 @@ eslint-config-airbnb-base@^11.2.0:
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.2.0.tgz#19a9dc4481a26f70904545ec040116876018f853"
 
 eslint-config-airbnb@^15.0.1:
-  version "15.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-15.0.1.tgz#7b5188e5b7c74b9b2ce639fd5e1daba8fd761aed"
+  version "15.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-15.0.2.tgz#7b99fa421d0c15aee3310d647644315b02ea24da"
   dependencies:
     eslint-config-airbnb-base "^11.2.0"
 
@@ -1948,10 +1946,10 @@ eslint-plugin-import@^2.6.0:
     read-pkg-up "^2.0.0"
 
 eslint-plugin-jsx-a11y@^5.0.3:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-5.1.0.tgz#4a829634344e7a90391a9fb0fbd19810737d79c5"
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-5.1.1.tgz#5c96bb5186ca14e94db1095ff59b3e2bd94069b1"
   dependencies:
-    aria-query "^0.5.0"
+    aria-query "^0.7.0"
     array-includes "^3.0.3"
     ast-types-flow "0.0.7"
     axobject-query "^0.1.0"
@@ -3099,8 +3097,8 @@ jsbn@~0.1.0:
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
 jsdom@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-11.0.0.tgz#1ee507cb2c0b16c875002476b1a8557d951353e5"
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-11.1.0.tgz#6c48d7a48ffc5c300283c312904d15da8360509b"
   dependencies:
     abab "^1.0.3"
     acorn "^4.0.4"
@@ -3111,7 +3109,7 @@ jsdom@^11.0.0:
     cssstyle ">= 0.2.37 < 0.3.0"
     escodegen "^1.6.1"
     html-encoding-sniffer "^1.0.1"
-    nwmatcher ">= 1.3.9 < 2.0.0"
+    nwmatcher "^1.4.1"
     parse5 "^3.0.2"
     pn "^1.0.0"
     request "^2.79.0"
@@ -3121,7 +3119,7 @@ jsdom@^11.0.0:
     tough-cookie "^2.3.2"
     webidl-conversions "^4.0.0"
     whatwg-encoding "^1.0.1"
-    whatwg-url "^4.3.0"
+    whatwg-url "^6.1.0"
     xml-name-validator "^2.0.1"
 
 jsesc@^1.3.0:
@@ -3477,6 +3475,10 @@ lodash.reduce@4.6.0:
 lodash.restparam@^3.0.0:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
+
+lodash.sortby@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
 
 lodash.toplainobject@^3.0.0:
   version "3.0.0"
@@ -3841,7 +3843,7 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-"nwmatcher@>= 1.3.9 < 2.0.0":
+nwmatcher@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/nwmatcher/-/nwmatcher-1.4.1.tgz#7ae9b07b0ea804db7e25f05cb5fe4097d4e4949f"
 
@@ -5187,8 +5189,8 @@ uglify-js@^2.6, uglify-js@^2.8.27:
     uglify-to-browserify "~1.0.0"
 
 uglify-js@^3.0.6:
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.22.tgz#0a4d957cf381b38c3f40e9295c442043f04f5805"
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.23.tgz#a58c6b97e6d6763d94dbc265fe8e8c1725e64666"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
@@ -5204,6 +5206,10 @@ uid-number@^0.0.6:
 ultron@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.0.tgz#b07a2e6a541a815fc6a34ccd4533baec307ca864"
+
+undom@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/undom/-/undom-0.3.3.tgz#58d1a2b0ce065975f7fc369c180a0131b625c1c3"
 
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
@@ -5317,11 +5323,7 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webidl-conversions@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
-
-webidl-conversions@^4.0.0:
+webidl-conversions@^4.0.0, webidl-conversions@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.1.tgz#8015a17ab83e7e1b311638486ace81da6ce206a0"
 
@@ -5377,11 +5379,12 @@ webpack-dev-server@^2.5.0:
     yargs "^6.0.0"
 
 webpack-hot-middleware@2.x:
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.18.0.tgz#a16bb535b83a6ac94a78ac5ebce4f3059e8274d3"
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.18.1.tgz#8b7f4f17a058974213e5058cc861da281506a8a9"
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
+    path-browserify "0.0.0"
     querystring "^0.2.0"
     strip-ansi "^3.0.0"
 
@@ -5452,12 +5455,13 @@ whatwg-encoding@^1.0.1:
   dependencies:
     iconv-lite "0.4.13"
 
-whatwg-url@^4.3.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-4.8.0.tgz#d2981aa9148c1e00a41c5a6131166ab4683bbcc0"
+whatwg-url@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-6.1.0.tgz#5fc8279b93d75483b9ced8b26239854847a18578"
   dependencies:
+    lodash.sortby "^4.7.0"
     tr46 "~0.0.3"
-    webidl-conversions "^3.0.0"
+    webidl-conversions "^4.0.1"
 
 which-module@^1.0.0:
   version "1.0.0"
