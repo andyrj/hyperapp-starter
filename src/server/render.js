@@ -5,8 +5,6 @@ import { DEV } from "../utils";
 import state from "../state";
 import pjson from "../../package.json";
 
-require('undom/register');
-
 function serialize(el) { // eslint-disable-line complexity
   if (el.nodeType===3) return el.textContent;
   var name = String(el.nodeName).toLowerCase(),
@@ -60,7 +58,8 @@ const render = async (ctx, next) => {
     /\.ico$/.test(path)
   ) {
     await next();
-  } else {    
+  } else {
+    require('undom/register');
     global.location = {
       pathname: path
     };
