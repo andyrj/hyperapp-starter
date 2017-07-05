@@ -19,7 +19,7 @@
     "build:server": "NODE_ENV=production webpack --config webpack.server.js",
     "build": "npm run clean && npm run build:server && npm run build:client",
     "format": "prettier --write \"./src/**/*.js\"",
-    "analyze": "npm run clean && npm run build:server-prod && NODE_ENV=production ANALYZE=1 webpack -p --config webpack.client.js",
+    "analyze": "npm run clean && npm run build:server && NODE_ENV=production ANALYZE=1 webpack -p --config webpack.client.js",
     "dev": "npm run clean && webpack --config webpack.server.js --watch --hot --verbose",
     "start": "NODE_ENV=production node .build/server.js",
     "test": "mocha",
