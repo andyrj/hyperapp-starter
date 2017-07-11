@@ -15,7 +15,7 @@ export default (state, target) => {
   }
   app({
     state,
-    view: (state, actions) => <div>SSR'd static view works...  but router mixin fails server side</div>,//[["/", Home], ["/counters", Counters]],
+    view: (state, actions) => <div>{"SSR'd static view works...  but router mixin fails server side"}</div>,//[["/", Home], ["/counters", Counters]],
     events: {
       action: console.log
     },
