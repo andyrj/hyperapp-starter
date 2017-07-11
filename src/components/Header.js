@@ -14,11 +14,6 @@ export default ({ state, actions }) => {
           {"Counters"}
         </Link>
       </li>
-      <li>
-        <Link actions={actions} to="/todos">
-          {"Todos"}
-        </Link>
-      </li>
     </ul>
   );
 };
