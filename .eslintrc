@@ -18,7 +18,9 @@
     "fetch": true,
     "btoa": true,
     "atob": true,
-		"history": true
+    "history": true,
+    "location": true,
+    "addEventListener": true
   },
   "rules": {
     "import/no-dynamic-require": 0,

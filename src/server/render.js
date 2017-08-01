@@ -27,11 +27,12 @@ const render = async (ctx, next) => {
     };
     // just stubbing out functions not needed for SSR with hyperapp-router
     global.addEventListener = (str, fn) => {};
+    /*
     let renderDiv = document.createElement('div');
     renderDiv.setAttribute('id', 'root');
     renderDiv.setAttribute('data-ssr', true); // not sure if this is ok with only 1 arg...
     document.body.appendChild(renderDiv);
-
+    */
     app(state);
 
     const html = `

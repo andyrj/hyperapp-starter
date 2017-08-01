@@ -31,7 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "@hyperapp/router": "^0.0.2",
-    "hyperapp": "^0.10.0",
+    "hyperapp": "^0.10.1",
     "hyperapp-server": "hyperapp/server",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
