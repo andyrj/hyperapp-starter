@@ -3,18 +3,13 @@ import app from './app';
 // safely parse json state from SSR
 const state = JSON.parse(document.getElementById('state').innerHTML);
 
-// hyperapp doesn't hydrate existing dom so it must be regenerated
-// this will cause a flicker when re-rendered client side... meh..
-//document.body.innerHTML = '';
-// simulating log render time...
-//document.body.innerHTML = '';
-//setInterval(() => app(state), 5000);
-//app(state);
-window.doRender = () => app(state);
+const target = document.body;
+app(state, target);
 
+/* used for webpack hmr...
 if (module.hot) {
   module.hot.accept('./app', () => {
-    document.body.innerHTML = '';
-    app(window.state);
+    app(window.state, target);
   });
 }
+*/

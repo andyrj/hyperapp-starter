@@ -83,19 +83,18 @@ k.use(async(ctx, next) => {
   } else {
     const state = { count: 0 };
 
-    //console.log(document.readyState);
+    // ensure undom has reset document.body for each request...
+    document.body = document.createElement("body");
 
     // may still need these for router mixin	
     global.location = {
       pathname: path
     }; 
-    // just stubbing out functions not needed for SSR with hyperapp-router
+    // just stubbing out functions needed for SSR with hyperapp-router
     global.addEventListener = (str, fn) => {};
-    document.readyState = ["1"];
-    app(state);
+    app(state, document.body);
     
     const body = serialize(document.body.children[0]);
-    console.log(body);
     ctx.body = getHTML(state, body);
     ctx.type = 'text/html';
   }
